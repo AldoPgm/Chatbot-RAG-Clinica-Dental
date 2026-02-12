@@ -1,0 +1,5 @@
+run = "python tools/receive_whatsapp_message.py"
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
