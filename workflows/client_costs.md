@@ -24,9 +24,10 @@ Usando el modelo `gpt-4o-mini` (rápido y barato):
 -   **Estimado con margen de seguridad:** **~$2.00 - $5.00 USD / mes**.
     *(Incluso si hablan muchísimo, es muy barato).*
 
-### C. Hosting (Servidor)
+### C. Hosting (Railway)
 Para que el bot esté despierto 24/7.
--   **Replit Deployment / VPS:** **~$6.00 USD / mes**.
+-   **Railway Hobby Plan:** **~$5.00 USD / mes**.
+
 
 ---
 

@@ -37,15 +37,15 @@ Usa esta lista para no olvidar ningún paso al entregar el proyecto y asegurar t
 - [ ] **Opción B (Portar)**: Iniciar trámite para usar su número actual (OJO: Borrar WA App antes de activar).
 - [ ] **Aprobar el Sender**: El número debe aparecer como "Approved" en Twilio.
 
-## 🛠️ Fase 5: Despliegue Técnico (Tu trabajo)
-- [ ] **Fork en Replit**: Crear el Replit definitivo (ej: `bot-clinica-prod`).
-- [ ] **Configurar Secrets (Replit)**:
-    - [ ] `OPENAI_API_KEY`: (La del Cliente de Fase 2).
-    - [ ] `TWILIO_AUTH_TOKEN`: (La del Cliente fase 2).
-- [ ] **Entrenar Cerebro**: Ejecutar `bot.load_sample_documents()` en la consola de Replit.
+## 🛠️ Fase 5: Despliegue Técnico (En Railway)
+- [ ] **GitHub**: Subir el código final al GitHub (Privado).
+- [ ] **Railway**:
+    - [ ] Crear proyecto "Deploy from GitHub".
+    - [ ] Configurar Variables (`OPENAI_API_KEY`, etc).
 - [ ] **Conectar Webhook**:
-    - [ ] En Twilio (Sender > Webhook), pegar: `https://bot-clinica-prod.replit.co/webhook`.
+    - [ ] En Twilio (Sender > Webhook), pegar: `https://tu-proyecto.up.railway.app/webhook`.
     - [ ] Método POST.
+
 
 ## 🚀 Fase 6: Lanzamiento y Cobro
 - [ ] **Prueba Final**: Escribir al número real desde un celular personal.
