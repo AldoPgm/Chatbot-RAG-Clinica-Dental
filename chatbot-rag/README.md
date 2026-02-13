@@ -244,6 +244,26 @@ El sistema registra automáticamente:
 
 ---
 
+
+## ☁️ Despliegue en Replit
+
+Este proyecto está configurado para desplegarse fácilmente en [Replit](https://replit.com).
+
+### Variables de Entorno (Secrets)
+Para que funcione en producción, debes configurar las siguientes variables en la sección **Secrets** de Replit:
+
+| Variable | Descripción | Requerida |
+|---|---|---|
+| `OPENAI_API_KEY` | Tu llave de OpenAI (debe comenzar con `sk-proj...`) | **SÍ** |
+| `TWILIO_AUTH_TOKEN` | Token de autenticación de Twilio (si usas validación) | Opcional |
+| `APP_PORT` | Puerto del servidor (por defecto 5000) | No |
+
+### Pasos
+1. Haz fork de este repositorio.
+2. En Replit, selecciona **"Import from GitHub"**.
+3. Replit detectará automáticamente `.replit` y `replit.nix`.
+4. Configura los **Secrets**.
+5. Presiona **Run**.
 ## 📄 Licencia
 
 Proyecto demostrativo. BillEasy es una empresa ficticia creada con fines educativos.

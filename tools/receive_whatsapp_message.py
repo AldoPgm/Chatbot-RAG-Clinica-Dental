@@ -29,7 +29,10 @@ if RAG_DIR not in sys.path:
 try:
     from src.chatbot import RAGChatbot
     rag_chatbot = RAGChatbot()
-    print("✅ RAG Chatbot initialized for WhatsApp")
+    if rag_chatbot.em.document_count == 0:
+        print("⚠️ Database empty! Loading sample documents for production...")
+        rag_chatbot.load_sample_documents()
+    print(f"✅ RAG Chatbot initialized (Docs: {rag_chatbot.em.document_count})")
 except Exception as e:
     print(f"⚠️ Failed to initialize RAG Chatbot: {e}")
     rag_chatbot = None

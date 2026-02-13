@@ -1,52 +1,30 @@
 ---
-description: How to set up and configure the Twilio WhatsApp Sandbox for development
+description: Guía paso a paso para configurar el Sandbox de WhatsApp en Twilio (Gratis)
 ---
 
-# Setup Twilio WhatsApp Sandbox
+# 📱 Configuración de Twilio Sandbox para WhatsApp
 
-## Objective  
-Configure the Twilio Sandbox so you can send and receive WhatsApp messages during development.
+Sigue estos pasos para conectar tu chatbot (en Replit o local) a WhatsApp usando la cuenta gratuita de Twilio.
 
-## Required Inputs
-- Twilio account (free tier works)
-- A phone with WhatsApp installed
+## 1. Crear/Entrar a tu cuenta Twilio
+Ve a [console.twilio.com](https://console.twilio.com) e inicia sesión. Si es cuenta nueva, tendrás créditos de prueba gratuitos.
 
-## Steps
+## 2. Activar el Sandbox
+1. En el menú de la izquierda, ve a **Messaging** > **Try it out** > **Send a WhatsApp message**.
+2. Verás un número de teléfono de Twilio (ej: `+1 415 523 8886`) y un código (ej: `join algo-algo`).
+3. Desde tu celular, abre WhatsApp y envía ese código a ese número.
+4. Twilio responderá confirmando que el Sandbox está activo. ✅
 
-1. **Get Twilio credentials**  
-   - Log in to [Twilio Console](https://console.twilio.com/)
-   - Copy your **Account SID** and **Auth Token** from the dashboard
-   - Paste them into `.env`:
-     ```
-     TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-     TWILIO_AUTH_TOKEN=your_auth_token_here
-     ```
+## 3. Conectar el Webhook (Tu Cerebro)
+1. En la misma pantalla del Sandbox, busca la pestaña **"Sandbox Settings"** (al lado de tu número).
+2. Busca el campo **"When a message comes in"**.
+3. Pega la URL de tu servidor.
+   - **Si usas Replit:** `https://tuchatbot.replit.co/webhook`
+   - **Si usas Ngrok:** `https://tu-url-ngrok.app/webhook`
+4. Asegúrate de que el método sea **POST**.
+5. Dale clic a **Save**.
 
-2. **Activate the WhatsApp Sandbox**  
-   - Go to **Messaging > Try it Out > Send a WhatsApp message**
-   - Follow Twilio's instructions to send the activation message from your phone
-   - Note the sandbox number and add it to `.env`:
-     ```
-     TWILIO_WHATSAPP_NUMBER=+14155238886
-     ```
+## 4. ¡Probar!
+¡Listo! Ahora todo lo que escribas en ese chat de WhatsApp será enviado a tu servidor, procesado por la IA, y respondido automáticamente.
 
-3. **Configure the webhook URL**  
-   - Start the local server: `python tools/receive_whatsapp_message.py`
-   - Expose it publicly using ngrok: `ngrok http 5000`
-   - Copy the ngrok HTTPS URL
-   - In Twilio Console > Sandbox Settings, set:
-     - **When a message comes in**: `https://your-ngrok-url.ngrok.io/webhook`
-     - Method: POST
-
-4. **Test the integration**  
-   - Send a WhatsApp message to the sandbox number
-   - Verify the message appears in your terminal logs
-   - Verify you receive a response back on WhatsApp
-
-## Edge Cases
-- **ngrok session expires**: Free tier sessions last 2 hours. Restart ngrok and update the webhook URL
-- **Sandbox deactivation**: If you haven't interacted in 72 hours, you may need to resend the activation message
-- **Multiple testers**: Each person must send the sandbox activation message individually
-
-## Tools Used
-- `tools/receive_whatsapp_message.py`
+> **Nota:** En el modo Sandbox gratuito, solo puedes mensajear con números que se hayan unido previamente (enviando el código `join`). Para producción necesitas aprobar un número propio de WhatsApp Business.
